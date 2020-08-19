@@ -1,1 +1,1 @@
-web: gunicorn v_breakdown.wsgi --log-file -
+web: gunicorn v_breakdown.wsgi
