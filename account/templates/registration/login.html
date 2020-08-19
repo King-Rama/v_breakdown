@@ -1,0 +1,16 @@
+{% extends 'client/base.html' %}
+
+{% block inner_content %}
+    {% load crispy_forms_tags %}
+    <form class="form-group w-50 mx-auto" method="post" action="{% url 'login' %}">
+        <h2 class="text-center">Login now</h2>
+        {{ form|crispy }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <input type="submit" class="btn btn-primary w-25" value="Log in">
+    <hr>
+    <a class="mx-auto" href="">Forgot password?</a>
+   <span class="float-right"><a class="mx-auto btn btn-outline-success rounded-pill text-secondary shadow" href="{% url 'client-register' %}">No account? Register now!</a></span>
+    </form>
+
+{% endblock %}

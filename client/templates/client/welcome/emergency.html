@@ -1,0 +1,35 @@
+{% extends 'client/welcome/index.html' %}
+{% load static %}
+
+{% block client %}
+    <div class="">
+        <div class="display-4 text-center alert alert-warning">Emergency</div>
+    </div>
+    {% load crispy_forms_tags %}
+        <form class="" method="post" enctype="multipart/form-data">
+            <div class="mx-auto">
+                {{ form|crispy }}
+            </div>
+            {% csrf_token %}
+            <input type="submit" value="Submit" class="btn btn-outline-success">
+        </form>
+{% endblock %}
+{##}
+{#{% block extra_js %}#}
+{##}
+{#    <script>#}
+{##}
+{#function getLocation() {#}
+{#  if (navigator.geolocation) {#}
+{#    navigator.geolocation.watchPosition(showPosition);#}
+{#  } else {#}
+{##}
+{#  }#}
+{#}#}
+{##}
+{#function showPosition(position) {#}
+{#    document.getElementById('client_location').value = position.coords.latitude+","+position.coords.longitude;#}
+{#}#}
+{#</script>#}
+{##}
+{#{% endblock %}#}

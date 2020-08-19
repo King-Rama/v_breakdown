@@ -1,0 +1,19 @@
+{% extends 'garage/admin_base.html' %}
+{% load static %}
+{% block title %}Welcome Admin {{ user.first_name }}{% endblock %}
+
+{% block iner_content %}
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Manager</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Garage</li>
+  </ol>
+</nav>
+    <div class="container-fluid">
+    {% load crispy_forms_tags %}
+        <form method="post" enctype="multipart/form-data">
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-primary" value="submit">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+       <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header bg-light">
+                <img class="img-fluid img-responsive" src="{% static 'img/BORDA_Africa_Print_RGB_COLOR-01-1.svg' %}">
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="" aria-expanded="false" class="dropdown-toggle">Home</a>
+                </li>
+{#                <li>#}
+{#                    <a href="{% url 'home:plant_register' %}">Registration</a>#}
+{#                    <a href="#pageSubmenu">Trips</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="{% url 'home:driver_list' %}">Drivers</a>#}
+{#                    <a href="#pageSubmenu">Trips</a>#}
+{#                </li>#}
+                <li>
+                    <a href="{% url 'garage:update' %}">Garage</a>
+                </li>
+                <li>
+                    <a href="{% url 'garage:trip-success' %}">Trip History</a>
+                </li>
+                <li>
+                    <a href="#">Statistics</a>
+                </li>
+{#                <li>#}
+{#                    <a href="{% url 'home:manager_rates' %}">Rates</a>#}
+{#                </li>#}
+                <hr>
+                <li>
+                    <a href="#"><img class="img-fluid img-responsive" src="{% static 'img/signout-icon-11.png' %}" width="40" height="40">Sign Out</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link" href="#">{{ user.phone }}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><img src="{% static 'img/png.png' %}" class="rounded-circle" height="30" width="30"></a>
+  </li>
+</ul>
+                </div>
+            </nav>
+
+            {% block iner_content %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'client/welcome/trip.html' %}
+
+{% block client %}
+    <div class="container-fluid">
+        {% load crispy_forms_tags %}
+        <div class="alert alert-warning h4">
+            <a class="" href="{% url 'client:pass_change' %}">Change password</a>
+        </div>
+        <form enctype="multipart/form-data" method="post">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <input type="submit" value="submit" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock %}

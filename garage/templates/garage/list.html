@@ -1,0 +1,33 @@
+{% extends 'garage/trip.html' %}
+
+{% block reg_list %}
+    <div class="container-fluid">
+        <table class="table display nowrap" id="driver_table" style="width:100%">
+  <caption>List of {{ cancel }} help request</caption>
+  <thead>
+    <tr>
+      <th scope="col">Id:</th>
+      <th scope="col">Garage</th>
+      <th scope="col">Created</th>
+      <th scope="col">Ended</th>
+      <th scope="col">Zone</th>
+      <th scope="col">Vehicle</th>
+      <th scope="col">Technician phone</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for driver in object_list %}
+    <tr class="text-center">
+      <th scope="row">{{ driver.id }}</th>
+      <td>{{ driver.garage }}</td>
+      <td>{{ driver.created }}</td>
+      <td>{{ driver.end_trip }}</td>
+      <td>{% if driver.client_zone == 1 %}Ilala{% elif driver.client_zone == 2 %}Ubungo{% elif driver.client_zone == 3 %}Kinondoni{% elif driver.client_zone == 4 %}Temeke{% endif %}</td>
+      <td >{{ driver.vehicle }}</td>
+      <td>{{ driver.technician.phone }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}
